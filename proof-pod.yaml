@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flux-proof
+  namespace: evil-demo
+spec:
+  restartPolicy: Never
+  containers:
+    - name: proof
+      image: busybox:1.36
+      command:
+        - sh
+        - -c
+        - |
+          echo "Flux applied this pod successfully" > /proof.txt
+          sleep 3600
